@@ -1,0 +1,150 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    line-height: calc(1em + 0.5em);
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Open Sans, sans serif;
+}
+
+header {
+    font-family: Poppins, sans-serif;
+    font-size: 28px;
+    font-weight: 600;
+    color: #0a0a0a;
+}
+
+p {
+    margin: 15px 0;
+    color: #2f2f2f;
+}
+
+section {
+    margin: 20px 0;
+}
+
+#main-doc ul {
+    color: #2f2f2f;
+    padding-left: 20px;
+
+}
+
+/*.container {*/
+/*    display: grid;*/
+/*    grid-template-columns: 300px 1fr;*/
+/*    grid-template-rows: 100px 2fr;*/
+
+/*    grid-template-areas:*/
+/*        "nav-header nav-header"*/
+/*        "navbar main";*/
+
+/*    column-gap: 20px;*/
+/*}*/
+
+.navbar {
+    grid-area: navbar;
+    position: fixed;
+    overflow-y: scroll;
+    min-width: 300px;
+    z-index: 1;
+    height: 100vh;
+    top: 100px;
+    left: 0;
+}
+
+.navbar::-webkit-scrollbar {
+    width: 0;
+}
+
+.navbar header {
+    position: fixed;
+    background-color: #E3E3E3;
+}
+
+.navbar ul {
+    padding-top: 74px;
+}
+
+#main-doc {
+    grid-area: main;
+    margin-top: 100px;
+    margin-left: 320px;
+}
+
+.logo-title {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    height: 100px;
+    grid-area: nav-header;
+}
+
+@media (min-width: 769px) {
+
+    .sidebar-button {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    #main-doc {
+        margin: 100px 0 0 0;
+        padding: 0 20px;
+    }
+
+    .navbar {
+        width: 300px;
+        left: unset;
+        right: -300px;
+        transition: 0.25s;
+    }
+
+    .inner-content .navbar.active {
+        right: 0;
+    }
+
+    .sidebar-button {
+        display: block;
+    }
+
+    .sidebar-button.active .bar:nth-child(1) {
+        top: 50%;
+        transform: rotate(45deg);
+        transition-delay: 400ms;
+    }
+
+    .sidebar-button.active .bar:nth-child(2) {
+        transform: translateX(30px);
+        opacity: 0;
+    }
+
+    .sidebar-button.active .bar:nth-child(3) {
+        bottom: 0;
+        top: 50%;
+        width: 25px;
+        transform: rotate(315deg);
+        transition-delay: 300ms;
+    }
+
+    .logo-title {
+        position: fixed;
+    }
+
+    .sidebar-button {
+        position: relative;
+    }
+
+    .inner-content {
+        display: flex;
+        flex-direction: column;
+    }
+}
